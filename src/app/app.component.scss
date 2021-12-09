@@ -12,11 +12,11 @@
 .top-section{
     // background-color: aquamarine;
     text-align: center;
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .first-heading{
-         font-size: 120px;
+         font-size: 100px;
          font-weight: bold;
          color: #f5f5f5;
          text-shadow: 0px 1px 7px rgba(black , 0.1);
@@ -32,11 +32,13 @@
 .content-section{
     // background-color:#5f9ea0;
     flex-grow: 1;
+    min-height: 0;
 }
 
 .bottom-section{
     // background-color: coral;
     display: flex;
+    padding: 10px;
 
     app-tabs{
         margin: auto;
