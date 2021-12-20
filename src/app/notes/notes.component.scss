@@ -1,5 +1,5 @@
 .notes-wrapper{
-    height: 100%;
+    height: 75%;
     overflow-y: auto;
 }
 
@@ -27,7 +27,6 @@
 
 .btns-container{
     display: flex;
-    margin-top: 20px;
 
     &.btns-centered{
         justify-content: center;
@@ -41,6 +40,10 @@
 
 app-note-card{
     display: block;
-    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+a{
+    text-decoration: none;
 }
 
