@@ -6,7 +6,10 @@ import { Note } from './note.model';
 })
 export class NoteService {
 
-  notes: Note[]
+  notes: Note[] =[
+    new Note('test title', 'test content'),
+    new Note('test title', 'test content')
+  ]
 
   constructor() { }
 
