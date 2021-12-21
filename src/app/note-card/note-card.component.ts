@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../shared/note.model';
+import { NoteService } from '../shared/note.service';
 
 @Component({
   selector: 'app-note-card',
@@ -8,11 +10,23 @@ import { Note } from '../shared/note.model';
 })
 export class NoteCardComponent implements OnInit {
 
-  @Input() note : Note
+  @Input() note: Note
 
-  constructor() { }
+  @Output() editClick: EventEmitter<void> = new EventEmitter()
+
+  constructor(private route: ActivatedRoute, private noteService: NoteService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  deleteNote() {
+    this.noteService.deleteNote(this.note.id);
+    this.router.navigateByUrl("/notes");
+  }
+
+  onEditClick() {
+    this.editClick.emit();
+  }
+
 
 }

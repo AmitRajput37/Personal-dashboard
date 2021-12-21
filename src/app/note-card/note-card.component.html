@@ -1,4 +1,21 @@
+
 <div class="note-card">
+    <div>
     <div class="note-card-title">{{note.title}}</div>
     <div class="note-card-content" *ngIf="note.content">{{note.content}}</div>
+</div>
+
+
+    <div class="todo-item-actions">
+        <div class="btn todo-item-action-btn" (click)="onEditClick()">
+            <i class="material-icons-outlined">
+                edit
+            </i>
+        </div>
+        <div class="btn todo-item-action-btn">
+            <i class="material-icons-outlined" (click)="deleteNote()">
+                delete
+            </i>
+        </div>
+    </div>
 </div>
