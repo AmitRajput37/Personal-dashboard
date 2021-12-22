@@ -1,6 +1,7 @@
 .bookmarks-wrapper{
-    height: 75%;
+    height: 100%;
     overflow-y: auto;
+    margin-top: 50px;
 }
 
 .bookmark-tiles-container{
@@ -13,7 +14,7 @@
 
 .btns-container{
     display: flex;
-
+    gap: 15px;
     &.btns-centered{
         justify-content: center;
     }
@@ -48,4 +49,9 @@ a{
     &:active{
         background: rgba(black, 0.85);
     }
+}
+
+.manage-btn i{
+    margin-right: 8px;
+    opacity: 0.9;
 }

@@ -12,6 +12,8 @@ export class BookmarkTileComponent implements OnInit {
 
   titleIconSrc : string
 
+  faviconError : boolean
+
   constructor() { }
 
   ngOnInit(): void {

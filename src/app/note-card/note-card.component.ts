@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-note-card',
@@ -14,7 +15,8 @@ export class NoteCardComponent implements OnInit {
 
   @Output() editClick: EventEmitter<void> = new EventEmitter()
 
-  constructor(private route: ActivatedRoute, private noteService: NoteService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private noteService: NoteService, private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +24,7 @@ export class NoteCardComponent implements OnInit {
   deleteNote() {
     this.noteService.deleteNote(this.note.id);
     this.router.navigateByUrl("/notes");
+    this.notificationService.show('Note Deleted!', 2000)
   }
 
   onEditClick() {
