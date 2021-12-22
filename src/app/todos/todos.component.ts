@@ -45,4 +45,8 @@ export class TodosComponent implements OnInit {
     this.notificationService.show('Todo Deleted!', 2000)
   }
 
+  trackById(index, item: Todo){
+    return item.id
+  }
+
 }

@@ -1,44 +1,75 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 import { Todo } from './todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TodoService {
+export class TodoService implements OnDestroy {
 
-  todos: Todo[]= [
-    new Todo('This is a test'),
-    new Todo('amit mnaiyar'),
-    new Todo('shubham rai'),
-    new Todo('chetan maiyar')
-  ];
+  todos: Todo[] = []
 
-  constructor() { 
-    this.todos[0].completed = true
-    this.todos[1].completed = true
+  storageListnSub: Subscription
+
+  constructor() {
+    this.loadState();
+
+    this.storageListnSub = fromEvent(window, 'storage')
+    .subscribe((event: StorageEvent) => {
+      if (event.key === 'todos') this.loadState()
+    })
   }
 
-  getTodos(){
+  getTodos() {
     return this.todos
   }
 
-  getTodo(id: string){
+  getTodo(id: string) {
     return this.todos.find(t => t.id === id)
   }
 
-  addTodo(todo: Todo){
+  addTodo(todo: Todo) {
     this.todos.push(todo);
+    this.saveState();
   }
 
-  updateTodo(id: string, updatedTodoFields: Partial<Todo>){
+  updateTodo(id: string, updatedTodoFields: Partial<Todo>) {
     const todo = this.getTodo(id);
     Object.assign(todo, updatedTodoFields);
+    this.saveState()
   }
 
-  deleteTodo(id: string){
+  deleteTodo(id: string) {
     const index = this.todos.findIndex(t => t.id === id)
-    if(index == -1) return
+    if (index == -1) return
 
     this.todos.splice(index, 1);
+
+    this.saveState();
   }
+
+  saveState() {
+    localStorage.setItem('todos', JSON.stringify(this.todos))
+  }
+
+  loadState() {
+
+    try {
+      const todosInStorage = JSON.parse(localStorage.getItem('todos'))
+
+      if (!todosInStorage) return
+
+      this.todos.length = 0;
+
+      this.todos.push(...todosInStorage)
+    }catch(e){
+      console.log('There was an error retrieving the todos from localStorage')
+      console.log(e)
+    }
+    
+  }
+
+  ngOnDestroy() {
+    if(this.storageListnSub) this.storageListnSub.unsubscribe()
+} 
 }
