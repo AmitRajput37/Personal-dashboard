@@ -6,7 +6,7 @@
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)" *ngIf="todo">
 
         <div class="form-field">
-            <input class="textbox" [ngModel]= "todo.text" #textField="ngModel" name="text" type="text"
+            <input class="textbox" [ngModel]="todo.text" #textField="ngModel" name="text" type="text"
                 placeholder="Enter todo text....." required minlength="3">
             <ng-container *ngIf="textField.invalid">
                 <p *ngIf="textField.errors.required">Please enter some text for this todo</p>

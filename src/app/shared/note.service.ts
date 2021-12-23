@@ -15,14 +15,14 @@ export class NoteService implements OnDestroy {
     this.loadState();
 
     this.storageListnSub = fromEvent(window, 'storage')
-    .subscribe((event: StorageEvent) => {
-      if (event.key === 'notes') this.loadState()
-    })
+      .subscribe((event: StorageEvent) => {
+        if (event.key === 'notes') this.loadState()
+      })
   }
 
   ngOnDestroy() {
-      if(this.storageListnSub) this.storageListnSub.unsubscribe()
-  } 
+    if (this.storageListnSub) this.storageListnSub.unsubscribe()
+  }
 
   getNotes() {
     return this.notes;

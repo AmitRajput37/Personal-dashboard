@@ -7,15 +7,15 @@ import { NotificationData } from './notification-data.model';
 })
 export class NotificationService {
 
-  private notification$ : Subject<NotificationData> = new Subject()
+  private notification$: Subject<NotificationData> = new Subject()
 
-  get notifications(){
+  get notifications() {
     return this.notification$.asObservable();
   }
 
   constructor() { }
 
-  show(text: string, duration = 5000){
-    this.notification$.next({text, duration})
+  show(text: string, duration = 5000) {
+    this.notification$.next({ text, duration })
   }
 }

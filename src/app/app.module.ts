@@ -39,7 +39,7 @@ import { NotificationComponent } from './notification/notification.component';
     ManageBookmarksComponent,
     EditBookmarkComponent,
     NotificationComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -50,4 +50,4 @@ import { NotificationComponent } from './notification/notification.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

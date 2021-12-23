@@ -7,7 +7,7 @@ import { NotificationService } from '../shared/notification.service';
   selector: 'app-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss'],
-  animations:[
+  animations: [
     trigger('notificationAnim', [
       transition(':enter', [
         style({
@@ -34,7 +34,7 @@ export class NotificationComponent implements OnInit {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.notificationService.notifications.subscribe((notification: NotificationData)=>{
+    this.notificationService.notifications.subscribe((notification: NotificationData) => {
       this.notification = Array(notification)
 
       clearTimeout(this.timeout)

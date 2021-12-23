@@ -18,11 +18,11 @@ export class TodoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEditClick(){
+  onEditClick() {
     this.editClick.emit();
   }
 
-  onDeleteClick(){
+  onDeleteClick() {
     this.deleteClick.emit();
   }
 }

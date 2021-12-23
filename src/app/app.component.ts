@@ -2,7 +2,7 @@ import { animate, query, style, transition, trigger, group } from '@angular/anim
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Observable, timer } from 'rxjs';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -190,7 +190,7 @@ import {map} from 'rxjs/operators';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   backgrounds: string[] = [
     'https://img.wallpapersafari.com/desktop/1920/1080/23/6/9fVwxn.jpg'
@@ -200,19 +200,19 @@ export class AppComponent implements OnInit{
 
   dateTime: Observable<Date>
 
-  ngOnInit(){
+  ngOnInit() {
 
-      this.dateTime = timer(0, 1000).pipe(
-        map(() => {
-          return new Date()
-        })
-      )
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date()
+      })
+    )
   }
 
   prepareRoute(outlet: RouterOutlet) {
     if (outlet.isActivated) {
-      const tab=  outlet.activatedRouteData['tab']
-      if(!tab) return 'secondary'
+      const tab = outlet.activatedRouteData['tab']
+      if (!tab) return 'secondary'
       return tab
     }
   }

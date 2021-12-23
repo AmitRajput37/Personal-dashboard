@@ -1,4 +1,4 @@
-export class NotificationData{
+export class NotificationData {
     text: string
     duration: number
 }

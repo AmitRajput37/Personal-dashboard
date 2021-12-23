@@ -14,11 +14,13 @@ import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [
   { path: 'bookmarks', component: BookmarksComponent, data: { tab: 1 } },
-  { path: 'bookmarks/add', component: AddBookmarkComponent},
-  { path: 'bookmarks/manage', component: ManageBookmarksComponent, children: [
-    { path: ':id', component: EditBookmarkComponent},
-  ]},
-  
+  { path: 'bookmarks/add', component: AddBookmarkComponent },
+  {
+    path: 'bookmarks/manage', component: ManageBookmarksComponent, children: [
+      { path: ':id', component: EditBookmarkComponent },
+    ]
+  },
+
   { path: 'todos', component: TodosComponent, data: { tab: 2 } },
   { path: 'todos/add', component: AddTodoComponent },
   { path: 'todos/:id', component: EditTodoComponent },

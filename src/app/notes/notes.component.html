@@ -7,13 +7,10 @@
                     Add
                 </a>
             </div>
-            
-                <app-note-card 
-                *ngFor="let note of notes" 
-                [note]="note"
-                (editClick)="onEditClick(note)">
+
+            <app-note-card *ngFor="let note of notes" [note]="note" (editClick)="onEditClick(note)">
             </app-note-card>
-            
+
         </div>
 
 

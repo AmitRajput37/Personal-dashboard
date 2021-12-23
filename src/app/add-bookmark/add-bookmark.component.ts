@@ -14,14 +14,14 @@ export class AddBookmarkComponent implements OnInit {
 
   showValidationErrors: boolean
 
-  constructor(private bookmarkService: BookmarkService, private router: Router, 
+  constructor(private bookmarkService: BookmarkService, private router: Router,
     private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit(form: NgForm){
-    const { name, url} = form.value
+  onFormSubmit(form: NgForm) {
+    const { name, url } = form.value
     const bookmark = new Bookmark(form.value.name, form.value.url)
     this.bookmarkService.addBookmark(bookmark)
     this.router.navigateByUrl('/bookmarks')

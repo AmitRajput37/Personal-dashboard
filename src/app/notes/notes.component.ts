@@ -9,7 +9,7 @@ import { NoteService } from '../shared/note.service';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  notes : Note[];
+  notes: Note[];
 
   constructor(private noteService: NoteService, private router: Router) { }
 
@@ -17,9 +17,9 @@ export class NotesComponent implements OnInit {
     this.notes = this.noteService.getNotes();
   }
 
-  onEditClick(notes: Note){
+  onEditClick(notes: Note) {
     this.router.navigate(['/notes', notes.id])
-  } 
+  }
 
 
 

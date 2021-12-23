@@ -14,7 +14,7 @@ export class EditNoteComponent implements OnInit {
 
   note: Note
 
-  constructor(private route: ActivatedRoute, private noteService: NoteService, 
+  constructor(private route: ActivatedRoute, private noteService: NoteService,
     private router: Router,
     private notificationService: NotificationService) { }
 
@@ -26,7 +26,7 @@ export class EditNoteComponent implements OnInit {
     })
   }
 
-  onFormSubmit(form: NgForm){
+  onFormSubmit(form: NgForm) {
 
     this.noteService.updateNote(this.note.id, form.value);
     this.router.navigateByUrl("/notes");

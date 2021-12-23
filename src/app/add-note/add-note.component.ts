@@ -14,16 +14,16 @@ export class AddNoteComponent implements OnInit {
 
   showValidationErrors: boolean
 
-  constructor(private noteService: NoteService, private router: Router , 
+  constructor(private noteService: NoteService, private router: Router,
     private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit( form: NgForm){
+  onFormSubmit(form: NgForm) {
     console.log(form)
 
-    if(form.invalid) return this.showValidationErrors =  true
+    if (form.invalid) return this.showValidationErrors = true
 
     const note = new Note(form.value.title, form.value.content)
 

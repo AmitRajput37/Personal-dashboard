@@ -10,9 +10,9 @@ export class BookmarkTileComponent implements OnInit {
 
   @Input() bookmark: Bookmark
 
-  titleIconSrc : string
+  titleIconSrc: string
 
-  faviconError : boolean
+  faviconError: boolean
 
   constructor() { }
 

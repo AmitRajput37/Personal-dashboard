@@ -9,8 +9,8 @@ import { TodoService } from '../shared/todo.service';
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
-  animations:[
-    trigger('todoItemAnim',[
+  animations: [
+    trigger('todoItemAnim', [
       transition(':leave', [
         animate(200, style({
           opacity: 0,
@@ -25,27 +25,27 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[]
 
-  constructor(private todoService: TodoService, private router: Router, 
-    private notificationService: NotificationService ) { }
+  constructor(private todoService: TodoService, private router: Router,
+    private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
   }
 
-  toggleCompleted(todo: Todo){
+  toggleCompleted(todo: Todo) {
     this.todoService.updateTodo(todo.id, { completed: !todo.completed })
   }
 
-  onEditClick(todo: Todo){
+  onEditClick(todo: Todo) {
     this.router.navigate(['/todos', todo.id])
-  } 
+  }
 
-  onDeleteClick(todo: Todo){
+  onDeleteClick(todo: Todo) {
     this.todoService.deleteTodo(todo.id)
     this.notificationService.show('Todo Deleted!', 2000)
   }
 
-  trackById(index, item: Todo){
+  trackById(index, item: Todo) {
     return item.id
   }
 

@@ -15,15 +15,15 @@ export class AddTodoComponent implements OnInit {
   showValidationErrors: boolean
 
 
-  constructor(private todoService : TodoService, private router: Router, 
+  constructor(private todoService: TodoService, private router: Router,
     private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit(form: NgForm){
+  onFormSubmit(form: NgForm) {
 
-    if(form.invalid) return this.showValidationErrors = true
+    if (form.invalid) return this.showValidationErrors = true
     const todo = new Todo(form.value.text)
     this.todoService.addTodo(todo)
     this.router.navigateByUrl('/todos')

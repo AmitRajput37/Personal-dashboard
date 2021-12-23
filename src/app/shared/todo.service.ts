@@ -15,9 +15,9 @@ export class TodoService implements OnDestroy {
     this.loadState();
 
     this.storageListnSub = fromEvent(window, 'storage')
-    .subscribe((event: StorageEvent) => {
-      if (event.key === 'todos') this.loadState()
-    })
+      .subscribe((event: StorageEvent) => {
+        if (event.key === 'todos') this.loadState()
+      })
   }
 
   getTodos() {
@@ -62,14 +62,14 @@ export class TodoService implements OnDestroy {
       this.todos.length = 0;
 
       this.todos.push(...todosInStorage)
-    }catch(e){
+    } catch (e) {
       console.log('There was an error retrieving the todos from localStorage')
       console.log(e)
     }
-    
+
   }
 
   ngOnDestroy() {
-    if(this.storageListnSub) this.storageListnSub.unsubscribe()
-} 
+    if (this.storageListnSub) this.storageListnSub.unsubscribe()
+  }
 }

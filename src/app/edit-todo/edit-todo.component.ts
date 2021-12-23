@@ -24,8 +24,8 @@ export class EditTodoComponent implements OnInit {
     })
   }
 
-  onFormSubmit(form: NgForm){
-    if(form.invalid) return
+  onFormSubmit(form: NgForm) {
+    if (form.invalid) return
     this.todoService.updateTodo(this.todo.id, form.value)
     this.router.navigateByUrl('/todos')
     this.notificationService.show('Todo Updated!', 2000)

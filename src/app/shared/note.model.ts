@@ -1,12 +1,12 @@
 import { stringify } from 'querystring';
 import { v4 as uuidv4 } from 'uuid';
 
-export class Note{
+export class Note {
     id: string;
     // title: string;
     // content: string;
 
-    constructor(public title: string , public content:string){
+    constructor(public title: string, public content: string) {
         this.id = uuidv4();
         // this.title = title;
         // this.content = content
