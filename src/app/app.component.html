@@ -1,7 +1,20 @@
 <div class="main-container">
+
+  <img [src]="bg" 
+  *ngFor="let bg of backgrounds.reverse()" 
+  class="bg-img" 
+  (load)="onBGImageLoad($event)"
+  @bgAnim>
+
+  <div class="btn change-bg-btn" (click)="changeBGImage()" *ngIf="!loadingBGImage" @fadeAnim>
+    <i class="material-icons-outlined">
+      refresh
+    </i>
+  </div>
+
 <div class="top-section">
-  <h1 class="first-heading">15.00</h1>
-  <h1 class="second-heading">8 december 2021</h1>
+  <h1 class="first-heading">{{dateTime | async | date:'hh:mm:ss'}}</h1>
+  <h1 class="second-heading">{{ dateTime | async | date:'d MMMM y'}}</h1>
 </div>
 
 <div class="content-section" [@routeAnim] = "prepareRoute(outlet)">

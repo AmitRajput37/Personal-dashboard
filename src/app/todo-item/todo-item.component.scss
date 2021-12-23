@@ -6,6 +6,11 @@
     border-radius: 25px;
     padding: 10px 12px;
     cursor: pointer;
+
+    &:hover{
+        background-color: rgba(black, 0.68);
+        backdrop-filter: blur(2px);
+    }
 }
 
 .todo-text{

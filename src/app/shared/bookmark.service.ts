@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { Bookmark } from './bookmark.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookmarkService {
+export class BookmarkService implements OnDestroy {
 
   bookmarks: Bookmark[] = []
 
@@ -19,6 +19,10 @@ export class BookmarkService {
       if (event.key === 'bookmarks') this.loadState()
     })
    }
+
+   ngOnDestroy() {
+    if(this.storageListnSub) this.storageListnSub.unsubscribe()
+} 
 
   getBookmarks(){
     return this.bookmarks
