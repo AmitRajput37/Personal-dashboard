@@ -48,7 +48,8 @@
 .bottom-section{
     // background-color: coral;
     display: flex;
-    padding: 30px;
+    padding-bottom: 30px;
+    padding-top:0 ;
 
     app-tabs{
         margin: auto;
