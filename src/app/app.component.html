@@ -9,7 +9,7 @@
   </div>
 
   <div class="top-section">
-    <h1 class="first-heading">{{dateTime | async | date:'hh:mm:ss'}}</h1>
+    <h1 class="first-heading">{{dateTime | async | date:'hh:mm'}}</h1>
     <h1 class="second-heading">{{ dateTime | async | date:'d MMMM y'}}</h1>
   </div>
 
@@ -22,4 +22,22 @@
   </div>
 
   <app-notification></app-notification>
+
+  <!-- <button mat-icon-button aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button> -->
+  <!-- <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu> -->
 </div>

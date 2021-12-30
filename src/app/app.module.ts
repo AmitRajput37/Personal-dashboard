@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -20,6 +19,9 @@ import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
 import { ManageBookmarksComponent } from './manage-bookmarks/manage-bookmarks.component';
 import { EditBookmarkComponent } from './edit-bookmark/edit-bookmark.component';
 import { NotificationComponent } from './notification/notification.component';
+import { CountdownModule } from 'ngx-countdown';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { NotificationComponent } from './notification/notification.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CountdownModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

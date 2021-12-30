@@ -7,18 +7,22 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "aws-deploy": "aws s3 sync dist/personal-dashboard/ s3://my-personal-dashboard"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.13",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.13",
     "@angular/compiler": "~9.1.13",
     "@angular/core": "~9.1.13",
     "@angular/forms": "~9.1.13",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.13",
     "@angular/platform-browser-dynamic": "~9.1.13",
     "@angular/router": "~9.1.13",
+    "ngx-countdown": "^12.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "uuid": "^8.3.2",
